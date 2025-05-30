@@ -1,8 +1,8 @@
+import json
 import os
-from flask import Flask, render_template, request, redirect, url_for, session
-import sqlite3
-import firebase_admin
-from firebase_admin import credentials, firestore
+from flask import Flask, request, jsonify
+from flask_login import LoginManager
+from firebase_admin import credentials, initialize_app
 
 app = Flask(__name__)
 app.secret_key = 'smartagro_secret_key'
