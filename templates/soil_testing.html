@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Soil Testing</h2>
+
+<h3>Sensor Outputs:</h3>
+<ul>
+    <li>Temperature: {{ sensor_data.temperature }}</li>
+    <li>pH Level: {{ sensor_data.pH }}</li>
+    <li>Soil Moisture: {{ sensor_data.moisture }}</li>
+</ul>
+
+<h3>Predicted Suitable Crops:</h3>
+<ol>
+    {% for crop in sensor_data.crop_prediction %}
+    <li>{{ crop }}</li>
+    {% endfor %}
+</ol>
+
+<button onclick="window.print()">Print Report</button>
+{% endblock %}
