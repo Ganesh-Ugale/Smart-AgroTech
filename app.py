@@ -7,7 +7,8 @@ app = Flask(__name__)
 app.secret_key = 'smartagro_secret_key'
 
 # Initialize Firebase Admin SDK
-cred = credentials.Certificate('firebase-service-account.json')  # Rename if needed
+firebase_json = os.getenv("FIREBASE_CONFIG")
+cred = credentials.Certificate(json.loads(firebase_json))
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
